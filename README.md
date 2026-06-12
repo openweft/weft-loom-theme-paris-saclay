@@ -66,3 +66,23 @@ COPY --from=ghcr.io/openweft/weft-loom-theme-paris-saclay:latest /marp/paris-sac
 BSD-3-Clause (openweft). The Université Paris-Saclay name + logo
 remain the property of the institution ; this repo references the
 brand only by colour and typography.
+
+## Cover slide / logo
+
+The theme renders a brand-typography wordmark on `section.lead`
+slides ; no institutional logo file is bundled (trademarks remain
+the institution's property and aren't redistributable under
+BSD-3-Clause).
+
+If you have the right to use the official logotype in your deck,
+supply your own image via the `--ups-logo` CSS variable :
+
+```markdown
+<!-- _class: lead -->
+<!-- _style: "--ups-logo: url(/path/to/your/logo.svg)" -->
+
+# Title here
+## Subtitle here
+```
+
+Official logo source : https://www.universite-paris-saclay.fr (institutional press contact).
