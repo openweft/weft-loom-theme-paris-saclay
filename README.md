@@ -2,7 +2,43 @@
 
 `paris-saclay` brand theme for weft-loom compile tooling.
 
-**Signature** : Université Paris-Saclay — chartreuse #84BD00 (PMS 376C) + navy #003C69.
+**Signature** : `#62003C` — deep aubergine / wine, sourced directly
+from the institutional SVG logo. The earlier draft used chartreuse
+`#84BD00` which has no grounding in the current visual identity.
+
+## Source
+
+Direct read of the official SVG logo
+(`universite-paris-saclay.fr/sites/default/files/media/2019-12/logo-ups.svg`,
+2026-06 audit) — the wordmark glyphs fill with **`#62003C`** and no
+other colour. The site stylesheet uses utility greys + Bootstrap
+defaults for layout, but the brand colour is only in the logo fill.
+
+| Role          | Hex       |
+| ------------- | --------- |
+| Primary       | `#62003C` (aubergine — logo fill) |
+| Deep variant  | `#3D0025` (used for `<pre>` background) |
+| Tint variant  | `#8B3F70` (used for h3 + blockquote rule) |
+| Body text     | `#333333` |
+| Paper surface | `#F9F5F7` |
+
+## Typography
+
+The site stylesheet declares :
+
+- **Avenir** (`avenir,sans-serif!important`) — body
+- **Century Gothic** — used for institutional emphasis
+
+Avenir is a Linotype font (paid licence, not redistributable) ; the
+theme falls back to **Avenir Next** / **Open Sans** / **Source
+Sans Pro** if Avenir is not available. Century Gothic is a Microsoft
+system font with broad availability.
+
+## Wordmark
+
+The official wording is **"Université Paris-Saclay"** (capital U,
+lowercase remainder, hyphenated, both `Paris` and `Saclay`
+capitalised). The CSS prints it in the footer.
 
 ## Usage (Marp slides)
 
@@ -15,29 +51,18 @@ theme: paris-saclay
 # Slide title
 ```
 
-The theme is published as an OCI artifact at
-`ghcr.io/openweft/weft-loom-theme-paris-saclay:<tag>` and consumed by
-the tool images via a multi-stage `COPY --from=` :
+## Distribution
+
+Published as an OCI artifact at
+`ghcr.io/openweft/weft-loom-theme-paris-saclay:<tag>`. Tool images
+consume it via multi-stage `COPY --from=` :
 
 ```dockerfile
-COPY --from=ghcr.io/openweft/weft-loom-theme-paris-saclayatest /marp/ /opt/marp/themes/
+COPY --from=ghcr.io/openweft/weft-loom-theme-paris-saclay:latest /marp/paris-saclay.css /opt/marp/themes/paris-saclay.css
 ```
-
-## Layout
-
-| Path                  | Contents                                  |
-| --------------------- | ----------------------------------------- |
-| `marp/paris-saclay.css`   | Marp slide stylesheet                     |
-| `pandoc/paris-saclay.tex` | pandoc XeLaTeX template (V0.2)            |
-| `latex/paris-saclay.sty`  | raw LaTeX style package (V0.2)            |
-
-## Brand integrity
-
-The CSS commits to the institution's published visual identity
-guide. Re-brand drift → open a PR with the citation. Logos +
-wordmarks remain the property of their owners and are referenced
-only by colour + typography, never bundled as image assets.
 
 ## License
 
-BSD-3-Clause (openweft).
+BSD-3-Clause (openweft). The Université Paris-Saclay name + logo
+remain the property of the institution ; this repo references the
+brand only by colour and typography.

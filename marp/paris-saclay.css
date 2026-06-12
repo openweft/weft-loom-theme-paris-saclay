@@ -3,30 +3,32 @@
  * @author weft-loom
  * @author_url https://github.com/openweft
  *
- * Marp slide theme inspired by the Université Paris-Saclay
- * visual identity : signature green + clean academic typography.
+ * Marp slide theme for Université Paris-Saclay. Primary colour
+ * sourced from the official institutional SVG logo
+ * (universite-paris-saclay.fr/sites/default/files/media/2019-12/
+ * logo-ups.svg) — the wordmark fills with #62003C, a deep
+ * aubergine / wine. The earlier draft used chartreuse #84BD00
+ * which has no grounding in the current visual identity.
  */
 
 @import 'default';
 
-/* Université Paris-Saclay 2020 brand : signature chartreuse green
- * (Pantone 376C ≈ #84BD00) with a contrasting deep navy. The
- * earlier #00b04f I used was too saturated / blue-shifted ; the
- * brand-accurate hue is yellower-green. */
+/* Site-validated palette (logo SVG, 2026-06 audit). */
 :root {
-  --ps-green: #84bd00;
-  --ps-green-dark: #6a9700;
-  --ps-navy: #003c69;
-  --ps-grey: #3a3a3a;
-  --ps-bg: #ffffff;
-  --ps-muted: #6f6f6f;
-  --ps-alt: #f6faea;
+  --ups-aubergine:      #62003c;
+  --ups-aubergine-deep: #3d0025;
+  --ups-aubergine-tint: #8b3f70;
+  --ups-text:           #333333;
+  --ups-muted:          #727272;
+  --ups-paper:          #f9f5f7;
+  --ups-divider:        #d7d7d7;
+  --ups-bg:             #ffffff;
 }
 
 section {
-  background: var(--ps-bg);
-  color: var(--ps-grey);
-  font-family: "Source Sans Pro", "Open Sans", "Arial", sans-serif;
+  background: var(--ups-bg);
+  color: var(--ups-text);
+  font-family: "Avenir Next", "Avenir", "Open Sans", "Source Sans Pro", sans-serif;
   padding: 56px 72px;
   font-size: 28px;
   line-height: 1.5;
@@ -39,7 +41,7 @@ section::before {
   left: 0;
   right: 0;
   height: 6px;
-  background: var(--ps-green);
+  background: var(--ups-aubergine);
 }
 
 section::after {
@@ -48,74 +50,77 @@ section::after {
   bottom: 18px;
   right: 32px;
   font-size: 13px;
-  color: var(--ps-muted);
-  letter-spacing: 0.08em;
+  color: var(--ups-muted);
+  letter-spacing: 0.07em;
 }
 
 h1 {
-  color: var(--ps-navy);
+  font-family: "Century Gothic", "Avenir Next", "Avenir", sans-serif;
+  color: var(--ups-aubergine);
   font-size: 2.4em;
   font-weight: 700;
   margin-bottom: 0.5em;
 }
 h2 {
-  color: var(--ps-grey);
+  font-family: "Century Gothic", "Avenir Next", "Avenir", sans-serif;
+  color: var(--ups-text);
   font-size: 1.6em;
   font-weight: 600;
-  border-left: 4px solid var(--ps-green);
+  border-left: 4px solid var(--ups-aubergine);
   padding-left: 0.5em;
 }
 h3 {
-  color: var(--ps-navy);
+  font-family: "Century Gothic", "Avenir Next", "Avenir", sans-serif;
+  color: var(--ups-aubergine-tint);
   font-size: 1.2em;
 }
 
 a {
-  color: var(--ps-navy);
+  color: var(--ups-aubergine);
   text-decoration: underline;
 }
 
 code {
-  background: var(--ps-alt);
-  color: var(--ps-navy);
+  background: var(--ups-paper);
+  color: var(--ups-aubergine);
   padding: 2px 6px;
   font-family: "JetBrains Mono", "Menlo", monospace;
 }
 
 pre code {
-  background: #142d1c;
-  color: #d5efdd;
-  border-left: 4px solid var(--ps-green);
+  background: var(--ups-aubergine-deep);
+  color: #f3e0eb;
+  border-left: 4px solid var(--ups-aubergine);
   display: block;
   padding: 1em;
 }
 
 blockquote {
-  border-left: 4px solid var(--ps-green);
+  border-left: 4px solid var(--ups-aubergine-tint);
   padding-left: 1em;
-  color: var(--ps-grey);
-  background: var(--ps-alt);
+  color: var(--ups-text);
+  background: var(--ups-paper);
   padding-top: 0.5em;
   padding-bottom: 0.5em;
 }
 
-ul li::marker { color: var(--ps-green); }
+ul li::marker { color: var(--ups-aubergine); }
 
 section.lead {
-  background: linear-gradient(135deg, var(--ps-navy) 0%, var(--ps-green-dark) 100%);
+  background: linear-gradient(135deg, var(--ups-aubergine-deep) 0%, var(--ups-aubergine) 100%);
   color: white;
   text-align: center;
 }
 section.lead::before { display: none; }
-section.lead::after { color: rgba(255, 255, 255, 0.85); }
+section.lead::after { color: rgba(255, 255, 255, 0.7); }
 section.lead h1 { color: white; }
-section.lead h2 { color: rgba(255, 255, 255, 0.9); border: none; font-weight: 400; }
+section.lead h2 { color: rgba(255, 255, 255, 0.85); border: none; font-weight: 400; }
 
-table { border-collapse: collapse; margin: 0.6em 0; }
+table { border-collapse: collapse; }
 th {
-  background: var(--ps-green-dark);
+  background: var(--ups-aubergine);
   color: white;
   padding: 0.4em 0.8em;
   text-align: left;
 }
-td { padding: 0.4em 0.8em; border-bottom: 1px solid #d4e8d9; }
+td { padding: 0.4em 0.8em; border-bottom: 1px solid var(--ups-divider); }
