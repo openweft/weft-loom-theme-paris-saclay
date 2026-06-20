@@ -1,3 +1,5 @@
+<p align="center"><img src="https://raw.githubusercontent.com/openweft/brand/main/social/weft-loom-theme-paris-saclay.png" alt="weft-loom-theme-paris-saclay" width="720"></p>
+
 # weft-loom-theme-paris-saclay
 
 `paris-saclay` brand theme for weft-loom compile tooling.
